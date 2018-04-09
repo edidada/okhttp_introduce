@@ -129,13 +129,13 @@ public final class Request {
      * @throws IllegalArgumentException if {@code url} is not a valid HTTP or HTTPS URL. Avoid this
      * exception by calling {@link HttpUrl#parse}; it returns null for invalid URLs.
      */
-    public Builder url(String url) {
+    public Builder url(String url) {//根据url生成Builder
       if (url == null) throw new NullPointerException("url == null");
 
       // Silently replace web socket URLs with HTTP URLs.
-      if (url.regionMatches(true, 0, "ws:", 0, 3)) {
+      if (url.regionMatches(true, 0, "ws:", 0, 3)) {//ws:替换成http:
         url = "http:" + url.substring(3);
-      } else if (url.regionMatches(true, 0, "wss:", 0, 4)) {
+      } else if (url.regionMatches(true, 0, "wss:", 0, 4)) {//wss:替换成https:
         url = "https:" + url.substring(4);
       }
 

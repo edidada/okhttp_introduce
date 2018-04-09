@@ -1308,7 +1308,7 @@ public final class HttpUrl {
 
       return result.toString();
     }
-
+//解析结果类
     enum ParseResult {
       SUCCESS,
       MISSING_SCHEME,
